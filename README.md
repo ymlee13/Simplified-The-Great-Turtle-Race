@@ -30,24 +30,35 @@ java -jar demo.jar 3
 
 ### How to Run
 ```bash
+# Compile all Java files
 javac *.java
+
+# Run with default 4 players
 java Gameboard
-# or with specific number of players
+
+# Run with specific number of players (2-5)
 java Gameboard 3
 ```
 
 ## 📁 Project Structure
-- Gameboard.java - Main game logic and board management
-- Player.java - Player class managing cards and turns
-- Turtle.java - Turtle class representing game pieces
-- PlayCard.java - Card class for movement cards
+```text
+.
+├── Gameboard.java    # Main game logic and board management
+├── Player.java       # Player class managing cards and turns
+├── Turtle.java       # Turtle class representing game pieces (COMPLETED)
+├── PlayCard.java     # Card class for movement cards
+└── TestClass.java    # Unit tests for grading
+```
 
 ## 🧩 Implementation Details
 
 ###Key Components
 Card System
 - Total Cards: 40 cards (5 colors × 8 types)
-- Card Types: +1 (5 per color), +2 (1 per color), -1 (2 per color)
+- Card Types:
+    - +1 (5 per color)
+    - +2 (1 per color)
+    - -1 (2 per color)
 - Card Management: Draw from deck, discard played cards
 - Shuffling: Manual Fisher-Yates shuffle using ThreadLocalRandom
 
@@ -62,8 +73,14 @@ Card System
 2. Prepare and shuffle card deck
 3. Each player draws 5 cards
 4. Players take turns:
-* Select a card to play
-* Move corresponding turtle
-* Discard played card
-* Draw a new card
+    - Display current hand
+    - Select a card by index
+    - Move corresponding turtle
+    - Discard played card
+    - Draw a new card (if available)
+    - Reshuffle discard pile if deck is empty
 5. Game ends when a turtle reaches the finish line
+6. Winner is the player whose turtle reaches the finish line (lowest in stack wins ties)
+
+## 📚 References
+Assignment GitHub: https://github.com/khwang0/COMP2046-2526PA2
